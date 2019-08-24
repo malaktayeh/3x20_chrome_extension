@@ -17,7 +17,7 @@
     "background": {
             "scripts": [
                 "content.js"
-            ]
-    },
-    "options_page": "options.html"
+            ],
+            "persistent": false
+    }
 }
