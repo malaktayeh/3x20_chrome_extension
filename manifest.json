@@ -11,12 +11,13 @@
         "128": "stopwatch-solid-fontawesome.png"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "notifications"
     ],
     "background": {
             "scripts": [
                 "content.js"
-            ],
-            "persistent": false
-    }
+            ]
+    },
+    "options_page": "options.html"
 }
