@@ -4,6 +4,7 @@
     "description": "Helps with reducing eyestrain by reminding you to take a break according to the 20-20-20 rule",
     "manifest_version": 2,
     "browser_action": {
+        "default_title": "3x20",
         "default_icon": "stopwatch-solid-small-fontawesome.png",
         "default_popup": "popup.html"
     },
@@ -12,11 +13,12 @@
     },
     "permissions": [
         "storage",
-        "notifications"
+        "notifications",
+        "alarms"
     ],
     "background": {
             "scripts": [
-                "content.js"
+                "background.js"
             ],
             "persistent": false
     }
