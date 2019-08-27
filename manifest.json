@@ -6,7 +6,7 @@
     "browser_action": {
         "default_title": "3x20",
         "default_icon": "stopwatch-solid-small-fontawesome.png",
-        "default_popup": "popup.html"
+        "default_popup": "popup.html?popup=true"
     },
     "icons": {
         "128": "stopwatch-solid-fontawesome.png"
