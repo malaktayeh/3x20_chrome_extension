@@ -5,11 +5,15 @@
     "manifest_version": 2,
     "browser_action": {
         "default_title": "3x20",
-        "default_icon": "stopwatch-solid-small-fontawesome.png",
+        "default_icon": "Small-N-Flat-Clock-64.png",
         "default_popup": "popup.html?popup=true"
     },
     "icons": {
-        "128": "stopwatch-solid-fontawesome.png"
+        "128": "Small-N-Flat-Clock-128.png",
+        "64": "Small-N-Flat-Clock-64.png",
+        "48": "Small-N-Flat-Clock-48.png",
+        "32": "Small-N-Flat-Clock-32.png",
+        "16": "Small-N-Flat-Clock-16.png"
     },
     "permissions": [
         "storage",
