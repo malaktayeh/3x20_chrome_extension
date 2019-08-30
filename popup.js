@@ -16,18 +16,15 @@ let displayCountDown = document.getElementById('countDown'),
     startPauseToggle = document.getElementById('startPauseToggle');
 
 function setAlarm(event) {
-  if (startPauseToggle.innerHTML === 'Get Time') {
-    displayTime();
-    return;
-  }
 
-  console.log('Set alarm!')
   let minutes = parseFloat(event.target.value);
   chrome.browserAction.setBadgeText({text: 'ON'});
-  startPauseToggle.innerHTML = 'Get Time';
 
   // add 20 min in milliseconds to current time
-  chrome.alarms.create(COUNTDOWN, {when: Date.now() + 1200000});
+  chrome.alarms.create(COUNTDOWN, {
+    when: Date.now() + 1200000,
+    periodInMinutes: 20
+  });
   chrome.storage.sync.set({minutes: minutes});
 
   // Save state using the Chrome extension storage API
@@ -39,13 +36,10 @@ function setAlarm(event) {
 }
 
 function clearAlarm() {
-  // chrome.browserAction.setBadgeText({text: 'OFF'});
   chrome.alarms.clearAll();
   chrome.browserAction.setBadgeText({text: ''});
-  console.log('Cleared timer!');
   clearTimeout(countDownTimer);
-  displayCountDown.innerHTML = '';
-  startPauseToggle.innerHTML = 'Start';
+  window.close();
 }
 
 function displayTime() {
@@ -62,13 +56,9 @@ function timeLeft() {
       timeLeftTemp = alarm.scheduledTime - new Date().getTime();
       formattedTime = new Date(timeLeftTemp).toISOString().slice(14, -5);
       console.log(formattedTime);
-      displayCountDown.innerHTML = formattedTime;
   });
+  window.close();
 }
-
-chrome.alarms.get(COUNTDOWN, function(alarm) {
-  if (alarm !== undefined) startPauseToggle.innerHTML = 'Get Time';
-});
 
 document.getElementById('startPauseToggle').addEventListener('click', setAlarm);
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);

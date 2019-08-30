@@ -1,5 +1,6 @@
 {
     "name": "3x20",
+    "author": "Malak Tayeh",
     "version": "1.0",
     "description": "Helps with reducing eyestrain by reminding you to take a break according to the 20-20-20 rule",
     "manifest_version": 2,
